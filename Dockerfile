@@ -26,4 +26,7 @@ EXPOSE 5000
 ## Run the Flask app
 CMD ["python", "app/application.py"]
 
+RUN useradd -m -d /var/jenkins_home -u 1000 -s /bin/bash jenkins
+RUN mkdir -p /var/jenkins_home && chown -R jenkins:jenkins /var/jenkins_home
+USER jenkins
 
